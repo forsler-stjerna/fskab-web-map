@@ -12,7 +12,10 @@ namespace FskabWebMap.Controllers
     {
         private readonly ICoordinateService coordinateService;
 
-        public CoordinateController(ICoordinateService coordinateService)
+        public CoordinateController(
+            ICoordinateService coordinateService,
+            ICoordinateGrouperService coordinateGrouper
+            )
         {
             this.coordinateService = coordinateService;
         }
@@ -21,8 +24,11 @@ namespace FskabWebMap.Controllers
         [Route("coordinates")]
         public IActionResult Coordinates([FromBody]CoordinateFormBody model)
         {
-            var groups = coordinateService.Get().Select(c => new CoordinateGroup(new[] { c }, c));
+            var coords = coordinateService.Get();
 
+
+
+            var groups = new List<CoordinateGroup>();
             return Ok(groups);
         }
     }
