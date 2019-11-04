@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace FskabWebMap.Models
 {
     public class CoordinateGroup
     {
-        public CoordinateGroup(List<Coordinate> coordinates, Coordinate coordinate)
+        public CoordinateGroup(IEnumerable<Coordinate> coordinates, Coordinate coordinate)
         {
-            Coordinates = coordinates;
+            Coordinates = coordinates.ToList();
             Coordinate = coordinate;
         }
 

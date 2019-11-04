@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using FskabWebMap.Models;
+using FskabWebMap.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FskabWebMap.Controllers
@@ -9,16 +10,20 @@ namespace FskabWebMap.Controllers
     [ApiController]
     public class CoordinateController : ControllerBase
     {
-        [HttpGet]
-        public IActionResult Coordinates(CoordinateFormBody model)
+        private readonly ICoordinateService coordinateService;
+
+        public CoordinateController(ICoordinateService coordinateService)
         {
-            var list = new List<Coordinate> {
-                new Coordinate()
-            };
-            var group = new CoordinateGroup(list, list.First());
+            this.coordinateService = coordinateService;
+        }
 
+        [HttpPost]
+        [Route("coordinates")]
+        public IActionResult Coordinates([FromBody]CoordinateFormBody model)
+        {
+            var groups = coordinateService.Get().Select(c => new CoordinateGroup(new[] { c }, c));
 
-            return Ok(group);
+            return Ok(groups);
         }
     }
 
