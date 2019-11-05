@@ -22,7 +22,11 @@ namespace FskabWebMap
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddSingleton<IDistanceCalculatorService, DistanceCalculatorService>();
             services.AddSingleton<ICoordinateService, CoordinateService>();
+            services.AddSingleton<ICoordinateGrouperService, CoordinateGrouperService>();
+            
+
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {

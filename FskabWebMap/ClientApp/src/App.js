@@ -7,11 +7,8 @@ export default class App extends Component {
   render() {
     return (
         <div>
-            <div>
-        This is our page       
-                </div>
             <FskabMap/>    
-      </div>
+        </div>
     );
   }
 }
