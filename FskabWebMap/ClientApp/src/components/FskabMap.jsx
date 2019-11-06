@@ -16,6 +16,7 @@ export default class FskabMap extends React.Component {
             viewport: DEFAULT_VIEWPORT,
             markers: {},
             path: {},
+            drawPath: false,
             zoom: 0,
         }
 
@@ -53,7 +54,6 @@ export default class FskabMap extends React.Component {
         this.getCoordinates(value);
     }
 
-
     renderMarker(m, i) {
         return (
             <CircleMarker key={i} center={[m.coordinate.latitude, m.coordinate.longitude]} radius={3 + 3 * m.coordinates.length}>
@@ -62,6 +62,10 @@ export default class FskabMap extends React.Component {
                 </Popup>
             </CircleMarker>
         );
+    }
+
+    toggleDrawCheckbox(e) {
+        this.setState({ drawPath: e.target.checked });
     }
 
     renderMarkers() {
@@ -73,6 +77,8 @@ export default class FskabMap extends React.Component {
     }
 
     renderPolyline() {
+        if (!this.state.drawPath) return null;
+
         const paths = this.state.path[this.state.zoom];
         if (!paths) return null;
 
@@ -100,6 +106,15 @@ export default class FskabMap extends React.Component {
                 </Map>
                 <div style={{ padding: 20 }}>
                     <Slider style={{ margin: 10 }} min={0} max={30} value={parseInt(this.state.zoom)} onChange={this.zoomChanged.bind(this)} />
+                    <label style={{verticalAlign: 'middle'}}>
+                        Draw Path
+                        <input
+                            style={{margin: 10}}
+                            name="drawPathCheckbox"
+                            type="checkbox"
+                            checked={this.state.drawPath}
+                            onChange={this.toggleDrawCheckbox.bind(this)} />
+                    </label>
                 </div>
             </div>
         );
