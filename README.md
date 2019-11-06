@@ -9,13 +9,13 @@
 - Leaflet
 
 ## Prerequisites
-- Node
-- npm or yarn
+- [Node](https://nodejs.org/en/download/)
+- [Yarn](https://yarnpkg.com/lang/en/docs/install/#windows-stable) or [Npm](https://www.npmjs.com/get-npm)
 - .Net
 - (Optional) Visual Studio 2019
 
 ## How to
-- Run `yarn install` in `/ClientApp`
+- Run `yarn install` or `npm install` in `/ClientApp`
 - Start project from visual studio.
 
 ### Functionality
@@ -25,9 +25,9 @@ Currently the grouping algorithm and the path algorithm only returns dummy resul
 # Todo
 - [ ] Create an algorithm that returns a grouping of coordinates using the zoom input. 
 - All coordinates need to be grouped (but can be alone in a group). 
-- The zoom varibale should change the distance with which coordinates can be grouped so that higher values gives larger groups.
+- The zoom variable should change the distance with which coordinates can be grouped so that higher values gives larger groups.
 
 - [ ] Create an algorithm that calculates the shortest path between all of the coorinates inputted. 
-- The first coorinate in the input will be the start of the path and the last one will be the end. 
+- The first coordinate in the input will be the start of the path and the last one will be the end. 
 
-- [ ] Write apropriate tests for both algorithms.
+- [ ] Write appropriate tests for both algorithms.
