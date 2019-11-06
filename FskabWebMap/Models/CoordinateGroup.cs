@@ -16,7 +16,7 @@ namespace FskabWebMap.Models
         public Coordinate Coordinate { get; set; }
 
         public override bool Equals(object obj) => GetHashCode() == obj.GetHashCode();
-        public override int GetHashCode() => HashCode.Combine(string.Join("",Coordinates.Select(c => c.Name), Coordinate.GetHashCode()));
+        public override int GetHashCode() => HashCode.Combine(string.Join("", Coordinates.OrderBy(c => c.Name).Select(c => c.Name)), Coordinate.GetHashCode());
         public override string ToString() => string.Join(", ", Coordinates);
 
     }
