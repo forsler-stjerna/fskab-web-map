@@ -22,7 +22,7 @@ namespace FskabWebMap.Services
                 new Coordinate(55.611507, 13.108381, "L"),
                 new Coordinate(55.490507, 12.999120, "M"),
                 new Coordinate(55.481107, 13.119480, "N"),
-                new Coordinate(55.000507, 13.000000, "O"),
+                new Coordinate(55.000507, 13.100000, "O"),
                 new Coordinate(55.611207, 12.989999, "P"),
                 new Coordinate(55.620507, 13.009980, "Q"),
                 new Coordinate(55.612507, 13.008381, "R"),

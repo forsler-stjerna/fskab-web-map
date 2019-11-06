@@ -28,7 +28,7 @@ namespace FskabWebMap.Controllers
         {
             var coords = coordinateService.Get();
             var groups = coordinateGrouperService.Group(coords, model.Zoom);
-            return Ok(groups);
+            return Ok(new { groups });
         }
     }
 

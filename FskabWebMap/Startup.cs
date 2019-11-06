@@ -1,7 +1,6 @@
 using FskabWebMap.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
@@ -11,10 +10,7 @@ namespace FskabWebMap
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
-        {
-            Configuration = configuration;
-        }
+        public Startup(IConfiguration configuration) => Configuration = configuration;
 
         public IConfiguration Configuration { get; }
 
@@ -25,7 +21,8 @@ namespace FskabWebMap
             services.AddSingleton<IDistanceCalculatorService, DistanceCalculatorService>();
             services.AddSingleton<ICoordinateService, CoordinateService>();
             services.AddSingleton<ICoordinateGrouperService, CoordinateGrouperService>();
-            
+            services.AddSingleton<IPathCalculatorService, PathCalculatorService>();
+
 
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
