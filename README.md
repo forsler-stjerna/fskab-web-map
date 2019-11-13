@@ -26,8 +26,13 @@ Currently the grouping algorithm and the path algorithm only returns dummy resul
 - [ ] Create an algorithm that returns a grouping of coordinates using the zoom input. 
 - All coordinates need to be grouped (but can be alone in a group). 
 - The zoom variable should change the distance with which coordinates can be grouped so that higher values gives larger groups.
-- a zoom value of 0 gives each coordinate it's own group.
+- A zoom value of 0 gives each coordinate it's own group.
+
 - [ ] Create an algorithm that calculates the shortest path between all of the coorinates inputted. 
 - The first coordinate in the input will be the start of the path and the last one will be the end. 
 
 - [ ] Write appropriate tests for both algorithms.
+
+- [ ] Add a form and an endpoint to create a new coordinate.
+
+- [ ] Make it possible to add a coordinate by interacting with the map.
